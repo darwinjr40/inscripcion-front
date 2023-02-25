@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { Schedule } from "./components/Schedule";
 import "./index.css";
 import { Inscripcion } from "./pages/Inscripcion";
 

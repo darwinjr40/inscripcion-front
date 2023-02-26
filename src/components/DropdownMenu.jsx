@@ -7,6 +7,10 @@ function DropdownMenu({ materia }) {
     setIsOpen(!isOpen);
   };
 
+  const onInputChange  = (event) => {
+    console.log(JSON.parse(event.target.value) || null);
+  }
+
   return (
     <div className="relative">
       <button
@@ -62,7 +66,7 @@ function DropdownMenu({ materia }) {
       {materia.grupos.map((grupo) => (
         <div
           key={grupo.id}
-          className={`py-2 px-4 hover:bg-gray-100 ${isOpen ? "hidden" : ""}`}
+          className={`py-2 px-4 hover:bg-gray-100 ${isOpen ? "": "hidden" }`}
         >
           <ul className="static top-full left-0 bg-white shadow-md rounded-md w-full">
             <li className="py-2 px-4 hover:bg-gray-100">
@@ -72,7 +76,8 @@ function DropdownMenu({ materia }) {
                   type="radio"
                   id="kraken"
                   name={materia.sigla}
-                  value="K"
+                  value={JSON.stringify(materia)} 
+                  onChange={ onInputChange  }
                 />
                 <label className="w-1/5 bg-gray-400 h-12 py-3" htmlFor="kraken">
                   {grupo.grupo}

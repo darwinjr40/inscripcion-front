@@ -20,7 +20,7 @@ export const TableMateria = () => {
     },
   ];
   return (
-    <table class="table-auto my-6 border w-full shadow">
+    <table className="table-auto my-6 border w-full shadow">
       <thead>
         <tr className="border-b">
           <th>Eliminar</th>

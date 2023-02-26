@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
+import { HorarioContext } from "../context/HorarioContext";
 import { DayPilot, DayPilotCalendar } from "@daypilot/daypilot-lite-react";
+import { events } from "../data/dato";
 
 export const Schedule = () => {
+  const { prueba } = useContext(HorarioContext);
   return (
     <div>
+      <button
+        onClick={() => {
+          prueba();
+        }}
+      >
+        button
+      </button>
       <DayPilotCalendar
         startDate="2023-02-25"
         viewType="Resources"
@@ -14,7 +24,8 @@ export const Schedule = () => {
           { name: "Jueves", id: "4" },
           { name: "Viernes", id: "5" },
         ]}
-        events={[
+        events={events}
+        /* events={[
           {
             id: 1,
             text: "Event 1",
@@ -29,7 +40,7 @@ export const Schedule = () => {
             end: "2023-02-25T09:15:00",
             resource: "1",
           },
-        ]}
+        ]} */
       />
     </div>
   );

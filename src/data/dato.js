@@ -72,7 +72,7 @@ export const materias = [
       {
         id: 1,
         cuposDisponibles: 30,
-        grupo: "SA",
+        grupo: "SG",
         docente: "López Winnipeg Mario Milton",
         horario: [
           {
@@ -96,7 +96,7 @@ export const materias = [
         id: 2,
         cuposDisponibles: 30,
         grupo: "SA",
-        docente: "López Winnipeg Mario Milton",
+        docente: "BALCAZAR VEIZAGA EVANS",
         horario: [
           {
             id: 1,
@@ -114,6 +114,59 @@ export const materias = [
           },
         ],
         horario2: ["Ma 12:00 - 14:15", "Ju 12:00 - 14:15"],
+      },
+      {
+        id: 3,
+        cuposDisponibles: 30,
+        grupo: "SH",
+        docente: "PEINADO PEREIRA MIGUEL JESUS",
+        horario: [
+          {
+            id: 1,
+            text: "inf120-SH",
+            start: "2023-02-25T14:30:00",
+            end: "2023-02-25T16:45:00",
+            resource: "2",
+          },
+          {
+            id: 2,
+            text: "inf120-SH",
+            start: "2023-02-25T14:30:00",
+            end: "2023-02-25T16:45:00",
+            resource: "4",
+          },
+        ],
+        horario2: ["Ma 14:30 - 16:45", "Ju 14:30 - 16:45"],
+      },
+      {
+        id: 4,
+        cuposDisponibles: 30,
+        grupo: "SC",
+        docente: "PEINADO PEREIRA MIGUEL JESUS",
+        horario: [
+          {
+            id: 1,
+            text: "inf120-SC",
+            start: "2023-02-25T16:45:00",
+            end: "2023-02-25T18:15:00",
+            resource: "1",
+          },
+          {
+            id: 2,
+            text: "inf120-SC",
+            start: "2023-02-25T16:45:00",
+            end: "2023-02-25T18:15:00",
+            resource: "3",
+          },
+          {
+            id: 3,
+            text: "inf120-SC",
+            start: "2023-02-25T16:45:00",
+            end: "2023-02-25T18:15:00",
+            resource: "5",
+          },
+        ],
+        horario2: ["Lun 16:45 - 18:15", "Mi 16:45 - 18:15", "Vi 16:45 - 18:15"],
       },
     ],
   },

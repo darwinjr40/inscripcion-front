@@ -2,14 +2,34 @@ import React, { useState } from "react";
 
 function DropdownMenu({ materia }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isSelect, setIsSelect] = useState("");
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
-  const onInputChange  = (event) => {
-    console.log(JSON.parse(event.target.value) || null);
+  const onInputClick  = (event) => {      
+
+    // if (event.target.onchangue) {
+    //   event.target.onchangue = false;   
+    //   event.target.checked = false;
+    // } else {
+    //   event.target.onchangue = true;      
+    //   event.target.checked = true;
+    // }
+    if (event.target.checked && isSelect === JSON.parse(event.target.value).grupo) {
+      event.target.checked = false;      
+    } else {      
+      event.target.checked = true;      
+    }
+   }  
+  
+  const onInputChange  = (event) => {    
+    // console.log(JSON.parse(event.target.value.grupo));
+    setIsSelect(JSON.parse(event.target.value).grupo);
   }
+
+  
 
   return (
     <div className="relative">
@@ -19,28 +39,28 @@ function DropdownMenu({ materia }) {
       >
         <div>
           <div className="flex text-center">
-            <div className="w-1/5 bg-gray-500 h-16 py-3">
+            <div className="w-1/4 bg-gray-500 h-16 py-3">
               <div>
                 <b>Nivel</b>
               </div>
               <div>{materia.nivel}</div>
             </div>
 
-            <div className="w-1/5 bg-gray-400 h-16 py-3">
+            <div className="w-1/4 bg-gray-400 h-16 py-3">
               <div>
                 <b>Sigla</b>
               </div>
               <div>{materia.sigla}</div>
             </div>
 
-            <div className="w-1/5 bg-gray-500 h-20 py-3">
+            <div className="w-1/4 bg-gray-500 h-16 py-3">
               <div>
                 <b>Nombre Materia</b>
               </div>
               <div>{materia.materia}</div>
             </div>
 
-            <div className="w-1/5 bg-gray-400 h-16 py-3">
+            <div className="w-1/4 bg-gray-400 h-16 py-3">
               <div>
                 <b>Grupos Habilitados</b>
               </div>
@@ -76,8 +96,9 @@ function DropdownMenu({ materia }) {
                   type="radio"
                   id="kraken"
                   name={materia.sigla}
-                  value={JSON.stringify(materia)} 
+                  value={JSON.stringify(grupo)} 
                   onChange={ onInputChange  }
+                  onClick={ onInputClick  }
                 />
                 <label className="w-1/5 bg-gray-400 h-12 py-3" htmlFor="kraken">
                   {grupo.grupo}

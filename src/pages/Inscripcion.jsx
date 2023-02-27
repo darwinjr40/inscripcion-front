@@ -10,8 +10,8 @@ export const Inscripcion = () => {
     <div className="w-[100%] m-auto">
       <Header />
       <div className="w-[85%] m-auto">
-        {/* <TableMateria />
-        <Schedule /> */}
+        <TableMateria />
+        <Schedule />
 
         {/* <Descripcion />
         <Subject /> */}

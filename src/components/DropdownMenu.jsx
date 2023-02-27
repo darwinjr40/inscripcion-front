@@ -8,13 +8,12 @@ function DropdownMenu({ materia }) {
     setIsOpen(!isOpen);
   };
 
-  const onInputClick  = (event) => {      
-
+  /* const onInputClick = (event) => {
     // if (event.target.onchangue) {
-    //   event.target.onchangue = false;   
+    //   event.target.onchangue = false;
     //   event.target.checked = false;
     // } else {
-    //   event.target.onchangue = true;      
+    //   event.target.onchangue = true;
     //   event.target.checked = true;
     // }
     if (event.target.checked && isSelect === JSON.parse(event.target.value).grupo) {
@@ -22,14 +21,13 @@ function DropdownMenu({ materia }) {
     } else {      
       event.target.checked = true;      
     }
-   }  
-  
-  const onInputChange  = (event) => {    
-    // console.log(JSON.parse(event.target.value.grupo));
-    setIsSelect(JSON.parse(event.target.value).grupo);
-  }
+  }; */
 
-  
+  const onInputChange = (event) => {
+    /* console.log(JSON.parse(event.target.value.grupo));
+    setIsSelect(JSON.parse(event.target.value).grupo); */
+    setIsSelect(event.target.value);
+  };
 
   return (
     <div className="relative">
@@ -82,11 +80,18 @@ function DropdownMenu({ materia }) {
           </div>
         </div>
       </button>
+      <button
+        onClick={() => {
+          setIsSelect("");
+        }}
+      >
+        QUITAR SELECCIÓN
+      </button>
 
       {materia.grupos.map((grupo) => (
         <div
           key={grupo.id}
-          className={`py-2 px-4 hover:bg-gray-100 ${isOpen ? "": "hidden" }`}
+          className={`py-2 px-4 hover:bg-gray-100 ${isOpen ? "" : "hidden"}`}
         >
           <ul className="static top-full left-0 bg-white shadow-md rounded-md w-full">
             <li className="py-2 px-4 hover:bg-gray-100">
@@ -96,9 +101,11 @@ function DropdownMenu({ materia }) {
                   type="radio"
                   id="kraken"
                   name={materia.sigla}
-                  value={JSON.stringify(grupo)} 
-                  onChange={ onInputChange  }
-                  onClick={ onInputClick  }
+                  //value={JSON.stringify(grupo)}
+                  value={grupo.grupo}
+                  onChange={onInputChange}
+                  checked={isSelect === grupo.grupo}
+                  //onClick={onInputClick}
                 />
                 <label className="w-1/5 bg-gray-400 h-12 py-3" htmlFor="kraken">
                   {grupo.grupo}

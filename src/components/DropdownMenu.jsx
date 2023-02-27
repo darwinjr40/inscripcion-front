@@ -101,11 +101,9 @@ function DropdownMenu({ materia }) {
                   type="radio"
                   id="kraken"
                   name={materia.sigla}
-                  //value={JSON.stringify(grupo)}
                   value={grupo.grupo}
                   onChange={onInputChange}
                   checked={isSelect === grupo.grupo}
-                  //onClick={onInputClick}
                 />
                 <label className="w-1/5 bg-gray-400 h-12 py-3" htmlFor="kraken">
                   {grupo.grupo}

@@ -1,10 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { HorarioContext } from "../context/HorarioContext";
 
 function DropdownMenu({ materia }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isSelect, setIsSelect] = useState("");
-  const { addHorario, removeHorario, addBoleta, removeBoleta } = useContext(HorarioContext);
+  const { addHorario, removeHorario, boletaState,addBoleta, removeBoleta } = useContext(HorarioContext);
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };

@@ -1,11 +1,11 @@
 import { createContext, useState } from "react";
-import { horario } from "../data/dato";
+import { horario, boleta } from "../data/dato";
 
 export const HorarioContext = createContext();
 
 export const HorarioProvider = ({ children }) => {
   const [horarioState, setHorarioState] = useState(horario);
-  const [boletaState, setBoletaState] = useState([]);
+  const [boletaState, setBoletaState] = useState(boleta);
 
   const addHorario = (horario) => {
     setHorarioState((horarioState) => [...horarioState, ...horario]);

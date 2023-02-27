@@ -77,14 +77,14 @@ export const materias = [
         horario: [
           {
             id: 1,
-            text: "inf120-SA",
+            text: "inf120-SG",
             start: "2023-02-25T07:00:00",
             end: "2023-02-25T09:15:00",
             resource: "2",
           },
           {
             id: 2,
-            text: "inf120-SA",
+            text: "inf120-SG",
             start: "2023-02-25T07:00:00",
             end: "2023-02-25T09:15:00",
             resource: "4",

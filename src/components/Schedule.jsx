@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { HorarioContext } from "../context/HorarioContext";
 import { DayPilot, DayPilotCalendar } from "@daypilot/daypilot-lite-react";
-import { events } from "../data/dato";
 
 export const Schedule = () => {
-  const { prueba } = useContext(HorarioContext);
+  //console.log("horariooooo");
+  const { horarioState } = useContext(HorarioContext);
+
   return (
     <div>
       <button
@@ -24,7 +25,7 @@ export const Schedule = () => {
           { name: "Jueves", id: "4" },
           { name: "Viernes", id: "5" },
         ]}
-        events={events}
+        events={horarioState}
         /* events={[
           {
             id: 1,

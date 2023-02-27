@@ -1,32 +1,27 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { HorarioContext } from "../context/HorarioContext";
 
 function DropdownMenu({ materia }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isSelect, setIsSelect] = useState("");
-
+  const { addHorario, removeHorario } = useContext(HorarioContext);
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
-  /* const onInputClick = (event) => {
-    // if (event.target.onchangue) {
-    //   event.target.onchangue = false;
-    //   event.target.checked = false;
-    // } else {
-    //   event.target.onchangue = true;
-    //   event.target.checked = true;
-    // }
-    if (event.target.checked && isSelect === JSON.parse(event.target.value).grupo) {
-      event.target.checked = false;      
-    } else {      
-      event.target.checked = true;      
-    }
-  }; */
-
-  const onInputChange = (event) => {
-    /* console.log(JSON.parse(event.target.value.grupo));
-    setIsSelect(JSON.parse(event.target.value).grupo); */
+  const onInputChange = (event, materia, grupo) => {
+    //console.log(materia);
+    //console.log(grupo);
+    //console.log(grupo.horario);
+    onClickRemoveSelected(materia.sigla);
     setIsSelect(event.target.value);
+    addHorario(grupo.horario);
+  };
+
+  const onClickRemoveSelected = (sigla) => {
+    if (isSelect === "") return;
+    removeHorario(`${sigla}-${isSelect}`); //example: inf110-SA
+    setIsSelect("");
   };
 
   return (
@@ -82,7 +77,7 @@ function DropdownMenu({ materia }) {
       </button>
       <button
         onClick={() => {
-          setIsSelect("");
+          onClickRemoveSelected(materia.sigla);
         }}
       >
         QUITAR SELECCIÓN
@@ -102,7 +97,7 @@ function DropdownMenu({ materia }) {
                   id="kraken"
                   name={materia.sigla}
                   value={grupo.grupo}
-                  onChange={onInputChange}
+                  onChange={(e) => onInputChange(e, materia, grupo)}
                   checked={isSelect === grupo.grupo}
                 />
                 <label className="w-1/5 bg-gray-400 h-12 py-3" htmlFor="kraken">

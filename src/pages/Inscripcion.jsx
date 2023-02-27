@@ -10,17 +10,18 @@ export const Inscripcion = () => {
     <div className="w-[100%] m-auto">
       <Header />
       <div className="w-[85%] m-auto">
-        <TableMateria />
-        <Schedule />
-
-        {/* <Descripcion />
-        <Subject /> */}
-        {/* <DropdownMenu />
-        <DropdownMenu />
-        <DropdownMenu /> */}
+        <Descripcion />
         {materias.map((materia) => (
           <DropdownMenu key={materia.id} materia={materia} />
         ))}
+        <TableMateria />
+        <Schedule />
+        <br />
+        <br />
+        {/* <Subject /> */}
+        {/* <DropdownMenu />
+        <DropdownMenu />
+        <DropdownMenu /> */}
       </div>
     </div>
   );

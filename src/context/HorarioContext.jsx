@@ -2,28 +2,44 @@ import { createContext, useState } from "react";
 import { horario } from "../data/dato";
 
 export const HorarioContext = createContext();
+
 export const HorarioProvider = ({ children }) => {
   const [horarioState, setHorarioState] = useState(horario);
-  const [materias, setMaterias] = useState([]);
+  const [boletaState, setBoletaState] = useState([]);
 
   const addHorario = (horario) => {
-    //console.log(horario);
     setHorarioState((horarioState) => [...horarioState, ...horario]);
   };
-
+  
+  
   const removeHorario = (id) => {
-    console.log(id);
     setHorarioState(
-      horarioState.filter((hora) => {
-        if (hora.text === id) return null;
-        return hora;
-      })
+      horarioState.filter((hora) => (hora.text !== id))
     );
   };
+  
+  //*Materias  
+  
+  const addBoleta = (materia) => {
+    setBoletaState(
+      (materiaState) => [...materiaState, materia ]
+    );                
+  };
 
+  const removeBoleta = (materia) => {
+    setBoletaState(
+      boletaState.filter((mat) => (mat.sigla !== materia.sigla))
+    );
+  };
+  
   return (
     <HorarioContext.Provider
-      value={{ horarioState, setHorarioState, addHorario, removeHorario }}
+      value={{ horarioState, setHorarioState, addHorario, removeHorario,
+        boletaState,
+        setBoletaState,
+        addBoleta,
+        removeBoleta,
+       }}
     >
       {children}
     </HorarioContext.Provider>

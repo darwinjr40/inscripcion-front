@@ -4,23 +4,28 @@ import { HorarioContext } from "../context/HorarioContext";
 function DropdownMenu({ materia }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isSelect, setIsSelect] = useState("");
-  const { addHorario, removeHorario } = useContext(HorarioContext);
+  const { addHorario, removeHorario, addBoleta, removeBoleta } = useContext(HorarioContext);
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
-  const onInputChange = (event, materia, grupo) => {
+  const onInputChange =  (event, mat, grupo) => {
     //console.log(materia);
     //console.log(grupo);
     //console.log(grupo.horario);
-    onClickRemoveSelected(materia.sigla);
+    onClickRemoveSelected(mat);
     setIsSelect(event.target.value);
     addHorario(grupo.horario);
+
+    let materiaCopy = {...mat};
+    materiaCopy.grupos = [grupo]
+    addBoleta(materiaCopy);
   };
 
-  const onClickRemoveSelected = (sigla) => {
+  const onClickRemoveSelected = (mat) => {
     if (isSelect === "") return;
-    removeHorario(`${sigla}-${isSelect}`); //example: inf110-SA
+    removeHorario(`${mat.sigla}-${isSelect}`); //example: inf110-SA
+    removeBoleta(mat);
     setIsSelect("");
   };
 
@@ -77,7 +82,7 @@ function DropdownMenu({ materia }) {
       </button>
       <button
         onClick={() => {
-          onClickRemoveSelected(materia.sigla);
+          onClickRemoveSelected(materia);
         }}
       >
         QUITAR SELECCIÓN

@@ -6,9 +6,9 @@ import "./index.css";
 import { Inscripcion } from "./pages/Inscripcion";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <HorarioProvider>
       <Inscripcion />
     </HorarioProvider>
-  </React.StrictMode>
+  // </React.StrictMode>
 );

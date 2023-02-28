@@ -11,6 +11,12 @@ export const TableMateria = () => {
     // console.log(materia);
     // removeBoleta(materia);
   };
+
+  const onDeleteMat = (mat) => {
+    removeBoleta(mat);
+    removeHorario(`${mat.sigla}-${mat.grupos[0].grupo}`); //example: inf110-SA
+    console.log(mat);
+  }
   return (
     <table className="table-auto my-6 border w-full shadow bg-white border-gray-300">
       <thead>
@@ -27,7 +33,7 @@ export const TableMateria = () => {
         {boletaState.map((materia) => (
           <tr className="border-b" key={materia.sigla}>
             <td className="text-center">
-              <button className={`${materia.confirm ?  "hidden" : ""}`}onClick={() => onx(materia)}   >
+              <button className={`${materia.confirm ?  "hidden" : ""}`} onClick={() => onDeleteMat(materia)}   >
                 <img
                   src={"src/assets/delete.svg"}
                   alt="delete icon"

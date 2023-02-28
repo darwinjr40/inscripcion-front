@@ -82,9 +82,7 @@ export const ButtonShowBoleta = ({onState, onAdd, onReset}) => {
                                     </h1>                                    
                                     <TableMateria />
 
-                                    <h1 className="text-2xl black font-semibold mt-5">
-                                        Conflicto de Materias
-                                    </h1>                                    
+                                                                      
                                     <TableMateriaIntersec 
                                         onState={onState}
                                         onAdd={onAdd}

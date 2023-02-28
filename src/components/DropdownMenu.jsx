@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { HorarioContext } from "../context/HorarioContext";
 
 function DropdownMenu({ materia }) {
@@ -6,9 +6,22 @@ function DropdownMenu({ materia }) {
   const [isSelect, setIsSelect] = useState(materia.selectGrupo ?? "");
   const { addHorario, removeHorario, boletaState, addBoleta, removeBoleta } =
     useContext(HorarioContext);
+
+  useEffect( () => {
+    //!buscar aquellas materias que no se encuentren en la boleta y regresar a su estado normal
+    if (isSelect === "") return;
+    const matBusq = boletaState.find(bolMat => bolMat.sigla === materia.sigla);
+    // console.log(matBusq);
+    if (!matBusq) {      
+      setIsSelect("");
+      materia.color[0] = materia.color[2];
+    }
+  }, [boletaState]);  
+
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
+
 
   const onInputChange = (event, mat, grupo) => {
     onClickRemoveSelected(mat);

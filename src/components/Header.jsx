@@ -9,9 +9,9 @@ export const Header = () => {
       <ul className="text-gray-500 flex justify-between space-x-20 text-base font-medium items-center">
         <li className="hidden md:flex">Histórico</li>
         <li className="hidden md:flex">Semestre 03/2022</li>
-        <li>Inscripción</li>
-        <li className="text-blue-600 ">Adición</li>
-        <li className="text-black hidden md:flex">Andrés Montaño</li>
+        <li className="text-blue-600 ">Inscripción</li>
+        <li>Adición</li>
+        <li className="text-black hidden md:flex">Darwin Mamani</li>
       </ul>
     </div>
   );

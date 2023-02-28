@@ -36,9 +36,9 @@ export const Descripcion = ({ md = 10, mi = 3, ml = 1 }) => {
               </div>
             </div>
 
-            <div className="w-2/3 py-3 font-bold">                
+            <div className="w-1/3 py-3 font-bold">                
             </div>
-            <div className="w-2/3 py-3 font-bold">   
+            <div className="w-3/3 py-3 font-bold">   
               <div className="">
                 <label htmlFor="" className="text-gray-800 font-bold text-lg ">INFORMACION DE MATERIAS:</label>                
               </div>           

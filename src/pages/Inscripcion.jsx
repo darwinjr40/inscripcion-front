@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useContext} from "react";
 import { Header } from "../components/Header";
 import { Schedule } from "../components/Schedule";
 import { TableMateria } from "../components/TableMateria";
@@ -7,7 +7,7 @@ import { Descripcion, Subject } from "../components";
 import DropdownMenu from "../components/DropdownMenu";
 import { materias, boleta } from "../data/dato";
 import {ButtonConfirm} from "../components/ButtonConfirm";
-import { init } from "../context/HorarioContext";
+import { init, HorarioContext } from "../context/HorarioContext";
 import { useVector } from "../hooks/useVector";
 import { ButtonShowBoleta } from "../components/ButtonShowBoleta";
 
@@ -44,9 +44,12 @@ if (inser.length == 0) {
 
 
 
+
 export const Inscripcion = () => {
   
   const { vector, addVector, removeVector, resetVector,} = useVector();
+  const { addHorario, removeHorario, boletaState, addBoleta, removeBoleta } =useContext(HorarioContext);
+
   
 
   return (
@@ -62,7 +65,10 @@ export const Inscripcion = () => {
 
         <div className="flex flex-col space-y-5">
           {inser.map((materia) => (
-            <DropdownMenu key={materia.id} materia={materia} />
+            <DropdownMenu 
+            key={materia.id} 
+            materia={materia}
+             />
           ))}
         </div>
         <ButtonConfirm

@@ -58,8 +58,7 @@ export const TableMateriaIntersec = () => {
         }
       }
     }
-
-    
+    localStorage.setItem('estado', JSON.stringify( boletaState ) );        
   }, [boletaState]);  
 
   const onx = ( materia) => {

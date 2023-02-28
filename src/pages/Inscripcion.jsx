@@ -6,14 +6,22 @@ import { TableMateriaIntersec } from "../components/TableMateriaIntersec";
 import { Descripcion, Subject } from "../components";
 import DropdownMenu from "../components/DropdownMenu";
 import { materias, boleta } from "../data/dato";
+import {ButtonConfirm} from "../components/ButtonConfirm";
+import { init } from "../context/HorarioContext";
 
 
-let inser = [];
+let inser = init();
 
+console.log(inser);
 
-boleta.forEach((bol) => {
-  inser = materias.filter((mat) => (mat.sigla != bol.sigla))
-});
+if (inser.length == 0) {
+  inser = materias;
+} else {
+  inser = materias.filter((mat) => 
+    !(inser.find(bol => (bol.sigla === mat.sigla && bol.confirm)))
+  )
+}
+
 
 
 export const Inscripcion = () => {
@@ -39,6 +47,8 @@ export const Inscripcion = () => {
         <TableMateria />
         <TableMateriaIntersec />
         <Schedule />
+
+        <ButtonConfirm/>
         <br />
         <br />
         {/* <Subject /> */}

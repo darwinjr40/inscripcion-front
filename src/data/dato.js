@@ -60,8 +60,8 @@ export const boleta = [
         ],
         horario2: ["Lun 07:00 - 08:30", "Mi 07:00 - 08:30", "Vi 07:00 - 08:30"],
       },
-    ]
-  }
+    ],
+  },
 ];
 
 export const events = [
@@ -89,6 +89,7 @@ export const materias = [
     materia: "introduccion a la informatica",
     cantidadGrupos: 10,
     levantamiento: false,
+    color: "E97777",
     grupos: [
       {
         id: 1,
@@ -396,6 +397,7 @@ export const materias = [
     materia: "programacion l",
     cantidadGrupos: 4,
     levantamiento: false,
+    color: "FF8787",
     grupos: [
       {
         id: 1,
@@ -506,6 +508,7 @@ export const materias = [
     materia: "programacion ll",
     cantidadGrupos: 5,
     levantamiento: false,
+    color: "F1F7B5",
     grupos: [
       {
         id: 1,
@@ -519,21 +522,21 @@ export const materias = [
             start: "2023-02-25T18:15:00",
             end: "2023-02-25T20:30:00",
             resource: "1",
-          },         
+          },
           {
             id: 2,
             text: "inf210-SD",
             start: "2023-02-25T18:15:00",
             end: "2023-02-25T20:30:00",
             resource: "3",
-          },         
+          },
           {
             id: 3,
             text: "inf210-SD",
             start: "2023-02-25T18:15:00",
             end: "2023-02-25T20:30:00",
             resource: "5",
-          },         
+          },
         ],
         horario2: ["Lun 18:15 - 20:30", "Mi 18:15 - 20:30", "Vi 18:15 - 20:30"],
       },
@@ -549,14 +552,14 @@ export const materias = [
             start: "2023-02-25T07:00:00",
             end: "2023-02-25T09:15:00",
             resource: "2",
-          },         
+          },
           {
             id: 2,
             text: "inf210-SC",
             start: "2023-02-25T07:00:00",
             end: "2023-02-25T09:15:00",
             resource: "4",
-          },       
+          },
         ],
         horario2: ["Ma 07:00 - 09:15", "Ju 07:00 - 09:15"],
       },
@@ -572,14 +575,14 @@ export const materias = [
             start: "2023-02-25T09:15:00",
             end: "2023-02-25T11:30:00",
             resource: "2",
-          },         
+          },
           {
             id: 2,
             text: "inf210-SB",
             start: "2023-02-25T09:15:00",
             end: "2023-02-25T11:30:00",
             resource: "4",
-          },      
+          },
         ],
         horario2: ["Ma 09:15 - 11:30", "Ju 09:15 - 11:30"],
       },
@@ -595,14 +598,14 @@ export const materias = [
             start: "2023-02-25T13:45:00",
             end: "2023-02-25T16:00:00",
             resource: "2",
-          },         
+          },
           {
             id: 2,
             text: "inf210-SA",
             start: "2023-02-25T13:45:00",
             end: "2023-02-25T16:00:00",
             resource: "4",
-          },      
+          },
         ],
         horario2: ["Ma 13:45 - 16:00", "Ju 13:45 - 16:00"],
       },
@@ -618,18 +621,17 @@ export const materias = [
             start: "2023-02-25T11:30:00",
             end: "2023-02-25T13:45:00",
             resource: "2",
-          },         
+          },
           {
             id: 2,
             text: "inf210-MV",
             start: "2023-02-25T11:30:00",
             end: "2023-02-25T13:45:00",
             resource: "4",
-          },      
+          },
         ],
         horario2: ["Ma 11:30 - 13:45", "Ju 11:30 - 13:45"],
       },
-
     ],
-  }, 
+  },
 ];

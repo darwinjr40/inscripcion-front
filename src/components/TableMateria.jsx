@@ -12,7 +12,7 @@ export const TableMateria = () => {
     // removeBoleta(materia);
   };
   return (
-    <table className="table-auto my-6 border w-full shadow">
+    <table className="table-auto my-6 border w-full shadow bg-white border-gray-300">
       <thead>
         <tr className="border-b">
           <th>Eliminar</th>
@@ -39,7 +39,7 @@ export const TableMateria = () => {
             <td className="text-center">{materia.grupos[0].grupo}</td>
             <td className="text-center">{materia.materia}</td>
             <td className="text-center">{materia.grupos[0].docente}</td>
-            <td className="text-center">
+            <td className="text-center py-2">
               {materia.grupos[0].horario2.map((hora, i) => (
                 <span key={i} className="block">
                   {hora}

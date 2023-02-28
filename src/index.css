@@ -2,15 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-/* .calendar_default_event_inner {
-    background: #2e78d6;
+.calendar_default_event_inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #6096b4;
     color: #fff;
     border: none;
-    border-radius: 5px;
-    font-size: 10pt;
+    border-radius: 0px;
+    font-size: 15pt;
     padding: 5px;
-    opacity: 0.8;
-} */
+    opacity: 1.0;
+}
+
 
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;

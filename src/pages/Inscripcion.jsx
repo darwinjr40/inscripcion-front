@@ -25,7 +25,7 @@ if (inser.length == 0) {
       const eleBusq = (inser.find(bol => (bol.sigla === mat.sigla)));
       if (eleBusq) {
         if (!eleBusq.confirm) {
-          mat.confirm = true;
+          mat.selectGrupo = eleBusq.grupos[0].grupo;
           vec.push(mat)
         }
       } else {

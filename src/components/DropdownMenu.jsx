@@ -3,7 +3,7 @@ import { HorarioContext } from "../context/HorarioContext";
 
 function DropdownMenu({ materia }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [isSelect, setIsSelect] = useState("");
+  const [isSelect, setIsSelect] = useState(materia.selectGrupo ?? "");
   const { addHorario, removeHorario, boletaState, addBoleta, removeBoleta } =
     useContext(HorarioContext);
   const toggleDropdown = () => {

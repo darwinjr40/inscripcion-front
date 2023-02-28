@@ -3,7 +3,7 @@ import React from "react";
 export const Descripcion = ({ md = 10, mi = 3, ml = 1 }) => {
   return (
     <>
-      <div className="bg-white px-10 py-4 font-bold border rounded-xl border-black">
+      <div className="bg-white px-10 py-4 font-bold border rounded-xl border-gray-400">
         <div className="text-black-500">
           <label htmlFor="">- Materias disponibles : {md}</label>
         </div>

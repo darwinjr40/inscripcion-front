@@ -2,7 +2,7 @@ import React from "react";
 
 export const Header = () => {
   return (
-    <div className="flex w-full justify-between py-6 px-3 border border-gray-300 shadow">
+    <div className="bg-fondo flex w-full justify-between py-6 px-3 border border-gray-300 shadow">
       <span className="text-red-600 text-3xl font-semibold">
         UAGRM <span className="text-blue-600">ONLINE</span>
       </span>

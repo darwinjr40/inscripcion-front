@@ -4,12 +4,13 @@ import { HorarioContext } from "../context/HorarioContext";
 function DropdownMenu({ materia }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isSelect, setIsSelect] = useState("");
-  const { addHorario, removeHorario, boletaState,addBoleta, removeBoleta } = useContext(HorarioContext);
+  const { addHorario, removeHorario, boletaState, addBoleta, removeBoleta } =
+    useContext(HorarioContext);
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
-  const onInputChange =  (event, mat, grupo) => {
+  const onInputChange = (event, mat, grupo) => {
     //console.log(materia);
     //console.log(grupo);
     //console.log(grupo.horario);
@@ -17,8 +18,8 @@ function DropdownMenu({ materia }) {
     setIsSelect(event.target.value);
     addHorario(grupo.horario);
 
-    let materiaCopy = {...mat};
-    materiaCopy.grupos = [grupo]
+    let materiaCopy = { ...mat };
+    materiaCopy.grupos = [grupo];
     addBoleta(materiaCopy);
   };
 
@@ -30,35 +31,35 @@ function DropdownMenu({ materia }) {
   };
 
   return (
-    <div className="relative">
+    <div className="relative border-black">
       <button
         className="py-2 px-4  bg-yellow-500 rounded-md w-full"
         onClick={toggleDropdown}
       >
         <div>
           <div className="flex text-center">
-            <div className="w-1/4 bg-gray-500 h-16 py-3">
+            <div className="w-1/4 bg-gray-500 py-3">
               <div>
                 <b>Nivel</b>
               </div>
               <div>{materia.nivel}</div>
             </div>
 
-            <div className="w-1/4 bg-gray-400 h-16 py-3">
+            <div className="w-1/4 bg-gray-400 py-3">
               <div>
                 <b>Sigla</b>
               </div>
               <div>{materia.sigla}</div>
             </div>
 
-            <div className="w-1/4 bg-gray-500 h-16 py-3">
+            <div className="w-1/4 bg-gray-500 py-3">
               <div>
                 <b>Nombre Materia</b>
               </div>
               <div>{materia.materia}</div>
             </div>
 
-            <div className="w-1/4 bg-gray-400 h-16 py-3">
+            <div className="w-1/4 bg-gray-400 py-3">
               <div>
                 <b>Grupos Habilitados</b>
               </div>
@@ -66,7 +67,7 @@ function DropdownMenu({ materia }) {
             </div>
 
             <svg
-              className="-mr-1 ml-2 h-8 w-12"
+              className={`-mr-1 ml-2 w-12 ${isOpen ? "rotate-180" : ""}`}
               viewBox="0 0 20 20"
               fill="currentColor"
               aria-hidden="true"
@@ -87,17 +88,16 @@ function DropdownMenu({ materia }) {
       >
         QUITAR SELECCIÓN
       </button>
-
-      {materia.grupos.map((grupo) => (
-        <div
-          key={grupo.id}
-          className={`py-2 px-4 hover:bg-gray-100 ${isOpen ? "" : "hidden"}`}
-        >
-          <ul className="static top-full left-0 bg-white shadow-md rounded-md w-full">
-            <li className="py-2 px-4 hover:bg-gray-100">
-              <div className="flex mb-4 text-center ">
+      <div className="flex flex-col space-y-4">
+        {materia.grupos.map((grupo) => (
+          <div
+            key={grupo.id}
+            className={` hover:bg-gray-100 ${isOpen ? "" : "hidden"}`}
+          >
+            <ul className="bg-white shadow-md rounded-md w-full ">
+              <li className="hover:bg-gray-100 flex text-center min-h-[50px]">
                 <input
-                  className="w-1/5 bg-gray-500 h-6 py-3"
+                  className="w-1/6 bg-gray-500 h-6 m-auto"
                   type="radio"
                   id="kraken"
                   name={materia.sigla}
@@ -105,25 +105,37 @@ function DropdownMenu({ materia }) {
                   onChange={(e) => onInputChange(e, materia, grupo)}
                   checked={isSelect === grupo.grupo}
                 />
-                <label className="w-1/5 bg-gray-400 h-12 py-3" htmlFor="kraken">
+                <label
+                  className="w-1/6 bg-gray-400 flex items-center justify-center "
+                  htmlFor="kraken"
+                >
                   {grupo.grupo}
                 </label>
-                <label className="w-1/5 bg-gray-500 h-12 py-3" htmlFor="kraken">
+                <label
+                  className="w-1/6 bg-gray-500 flex items-center justify-center"
+                  htmlFor="kraken"
+                >
                   {grupo.docente}
                 </label>
-                <label className="w-1/5 bg-gray-400 h-12 py-3" htmlFor="kraken">
+                <label
+                  className="w-1/6 bg-gray-400 flex items-center justify-center"
+                  htmlFor="kraken"
+                >
                   {grupo.cuposDisponibles}
                 </label>
-                <label className="w-1/5 bg-gray-500 h-12 py-3" htmlFor="kraken">
+                <label
+                  className="w-2/6 bg-gray-500 flex flex-col items-center justify-center"
+                  htmlFor="kraken"
+                >
                   {grupo.horario2.map((hora) => (
                     <p key={hora}>{hora}</p>
                   ))}
                 </label>
-              </div>
-            </li>
-          </ul>
-        </div>
-      ))}
+              </li>
+            </ul>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

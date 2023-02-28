@@ -8,7 +8,7 @@ export const TableMateria = () => {
   const onx = (materia) => {
     // console.log(event);
     // removeHorario(`${materia.sigla}-${isSelect}`); //example: inf110-SA
-    console.log(materia);
+    // console.log(materia);
     // removeBoleta(materia);
   };
   return (
@@ -27,7 +27,7 @@ export const TableMateria = () => {
         {boletaState.map((materia) => (
           <tr className="border-b" key={materia.sigla}>
             <td className="text-center">
-              <button onClick={() => onx(materia)}>
+              <button className={`${materia.confirm ?  "hidden" : ""}`}onClick={() => onx(materia)}   >
                 <img
                   src={"src/assets/delete.svg"}
                   alt="delete icon"

@@ -2,15 +2,21 @@ import React, { useContext, useEffect, useState } from "react";
 import { HorarioContext } from "../context/HorarioContext";
 
 
-const horaDeter = (vec, vecSig ) => {
+const horaDeter = (vec, vecSig ) => {//inf110, inf210
   for (let i = 0; i < vec.length; i++) {
     const x = vec[i];
     for (let j = 0; j < vecSig.length; j++) {
       const y = vecSig[j];
+      // if ((x.resource  === y.resource)
+      //     && ((containsEntreRang(x.start, x.end, y.start) || containsEntreRang(x.start, x.end, y.end))
+      //         || (x.start == y.start && x.end === y.end && x.text !==y.text)         
+      //         )          
+      //     ) {
       if ((x.resource  === y.resource)
           && ((containsEntreRang(x.start, x.end, y.start) || containsEntreRang(x.start, x.end, y.end))
-              || (x.start == y.start && x.end === y.end && x.text !==y.text)         
-              )          
+              // || (containsEntreRang(x.start, x.end, y.start) || containsEntreRang(x.start, x.end, y.end))        
+              )
+          && (x.text !==y.text)              
           ) {
         return true;
       }
@@ -27,18 +33,17 @@ const containsEntreRang = (horaInicio ,horaFin, horaDeterminada) => {
   // console.log(horaInicio);
   // console.log(horaFin);
   // console.log(horaDeterminada);
-  return (horaDeterminada.getTime() > horaInicio.getTime() && horaDeterminada.getTime() < horaFin.getTime());
+  return (horaDeterminada.getTime() >= horaInicio.getTime() && horaDeterminada.getTime() <= horaFin.getTime());
 }
 
 
-export const TableMateriaIntersec = () => {
+export const TableMateriaIntersec = ({onState, onAdd, onReset}) => {
   
   const { boletaState, removeHorario, removeBoleta } = useContext(HorarioContext);
   const [materias, setMaterias] = useState([]);
   
   useEffect( () => {
-    // console.log('das');
-    setMaterias([]);
+    onReset()
     const vector = boletaState;
     let n = vector.length;
     for (let i = 0; i < n; i++) {
@@ -49,23 +54,44 @@ export const TableMateriaIntersec = () => {
         // console.log(matSig);
         if (horaDeter(mat, matSig)) {
           // console.log('chocaron');
-          // console.log(vector[i]);
-          // console.log(vector[j]);
-          setMaterias(
-            (m) => [...m, vector[i]]
-          );
+          console.log(vector[i]);
+          console.log(vector[j]);
+          onAdd(vector[i]);
           break;
         }
       }
     }
-    localStorage.setItem('estado', JSON.stringify( boletaState ) );        
+    localStorage.setItem('estado', JSON.stringify( boletaState ) );
+
+    // setMaterias([]);
+    // const vector = boletaState;
+    // let n = vector.length;
+    // for (let i = 0; i < n; i++) {
+    //   const mat = vector[i].grupos[0].horario;
+    //   for (let j = 0; j < n; j++) {     
+    //     const matSig = vector[j].grupos[0].horario;
+    //     // console.log(mat);
+    //     // console.log(matSig);
+    //     if (horaDeter(mat, matSig)) {
+    //       // console.log('chocaron');
+    //       // console.log(vector[i]);
+    //       // console.log(vector[j]);
+    //       setMaterias(
+    //         (m) => [...m, vector[i]]
+    //       );
+    //       break;
+    //     }
+    //   }
+    // }
+    // localStorage.setItem('estado', JSON.stringify( boletaState ) );
+  // }, [boletaState]);  
   }, [boletaState]);  
 
   const onx = ( materia) => {
     console.log(materia);
   };
   return (
-    <table className="table-auto my-6 border w-full shadow" >
+    <table className="table-auto my-6 border w-full shadow bg-white border-gray-300" >
       <thead>
         <tr className="border-b">
           <th>Eliminar</th>
@@ -77,7 +103,7 @@ export const TableMateriaIntersec = () => {
         </tr>
       </thead>
       <tbody >          
-        {materias.map((materia) => (
+        {onState.map((materia) => (
           <tr  className="border-b" key={materia.sigla}>
             <td className="text-center">
               <button

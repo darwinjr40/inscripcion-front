@@ -7,14 +7,14 @@ export const Schedule = () => {
   const { horarioState } = useContext(HorarioContext);
 
   return (
-    <div>
-      <button
+    <div className="my-6 border w-full shadow bg-white border-gray-300" >
+      {/* <button
         onClick={() => {
           prueba();
         }}
       >
         button
-      </button>
+      </button> */}
       <DayPilotCalendar
         viewType="Resources"
         cellDuration={15}

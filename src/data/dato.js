@@ -89,7 +89,7 @@ export const materias = [
     materia: "introduccion a la informatica",
     cantidadGrupos: 10,
     levantamiento: false,
-    color: "E97777",
+    color: ["4dcf48", "e8e10c", ""],
     grupos: [
       {
         id: 1,
@@ -396,8 +396,8 @@ export const materias = [
     sigla: "inf120",
     materia: "programacion l",
     cantidadGrupos: 4,
-    levantamiento: false,
-    color: "FF8787",
+    levantamiento: true,
+    color: ["e39494", "e8e10c", ""],
     grupos: [
       {
         id: 1,
@@ -508,7 +508,8 @@ export const materias = [
     materia: "programacion ll",
     cantidadGrupos: 5,
     levantamiento: false,
-    color: "F1F7B5",
+    // color: "F1F7B5",
+    color: ["4dcf48", "e8e10c", ""],
     grupos: [
       {
         id: 1,

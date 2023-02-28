@@ -8,6 +8,8 @@ import DropdownMenu from "../components/DropdownMenu";
 import { materias, boleta } from "../data/dato";
 import {ButtonConfirm} from "../components/ButtonConfirm";
 import { init } from "../context/HorarioContext";
+import { useVector } from "../hooks/useVector";
+import { ButtonShowBoleta } from "../components/ButtonShowBoleta";
 
 
 let inser = init();
@@ -25,7 +27,9 @@ if (inser.length == 0) {
       const eleBusq = (inser.find(bol => (bol.sigla === mat.sigla)));
       if (eleBusq) {
         if (!eleBusq.confirm) {
-          mat.selectGrupo = eleBusq.grupos[0].grupo;
+          mat.selectGrupo = eleBusq.grupos[0].grupo;      
+          mat.color[2] = mat.color[0];
+          mat.color[0] = mat.color[1];
           vec.push(mat)
         }
       } else {
@@ -39,26 +43,36 @@ if (inser.length == 0) {
 }
 
 
+
 export const Inscripcion = () => {
+  
+  const { vector, addVector, removeVector, resetVector,} = useVector();
+  
+
   return (
     <div className="w-[100%] m-auto bg-fondo">
       <Header />
       <div className="w-[80%] m-auto pt-10">
         <Descripcion />
 
-        <h1 className="text-2xl black font-semibold mt-5">
+        <h1 className="text-2xl black font-semibold my-5">
           Materias Disponibles
-        </h1>
+        </h1>      
+        
+
         <div className="flex flex-col space-y-5">
           {inser.map((materia) => (
             <DropdownMenu key={materia.id} materia={materia} />
           ))}
         </div>
-        <TableMateria />
-        <TableMateriaIntersec />
-        <Schedule />
-
-        <ButtonConfirm/>
+        <ButtonConfirm
+          onState={vector}
+        />
+        <ButtonShowBoleta
+          onState={vector}
+          onAdd={addVector}
+          onReset={resetVector}
+        />
         <br />
         <br />
         {/* <Subject /> */}

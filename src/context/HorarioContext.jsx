@@ -37,6 +37,7 @@ export const HorarioProvider = ({ children }) => {
     setHorarioState(
       horarioState.filter((hora) => (hora.text !== id))
     );
+    
   };
   
   //*Materias  

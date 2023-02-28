@@ -2,14 +2,23 @@ import { useState, useContext } from "react";
 import { HorarioContext } from "../context/HorarioContext";
 
 
-export const ButtonConfirm = () => {
-    const {boletaState, addBoleta, removeBoleta } =
-        useContext(HorarioContext);
+export const ButtonConfirm = ({onState}) => {
+    const {boletaState, addBoleta, removeBoleta } =   useContext(HorarioContext);
 
     const [showConfirmation, setShowConfirmation] = useState(false);
 
     const handleShowConfirmation = () => {
-        setShowConfirmation(true);
+        if (onState.length > 0) {
+            window.alert('TIENE MATERIAS CRUZADAS');
+            return;
+        } 
+        
+        if (boletaState.length == 0) {
+            window.alert('SELECCIONE MATERIAS'); 
+            return;
+        }
+
+        setShowConfirmation(true);                        
     };
 
     const handleCancel = () => {
@@ -17,18 +26,23 @@ export const ButtonConfirm = () => {
     };
 
     const handleConfirm = () => {
+        
         boletaState.forEach(mat => {
             mat.confirm = true;
         });
         localStorage.removeItem('estado');        
         localStorage.setItem('boleta', JSON.stringify( boletaState ) );        
         setShowConfirmation(false);
-        window.location.reload();
+        window.location.reload();            
     };
 
     return (
         <div>
-            <button onClick={handleShowConfirmation}>Mostrar confirmación</button>
+            <button  onClick={handleShowConfirmation}
+                className="fixed  bottom-6 right-4 top-1 mt-28 z-10 w-24 h-24 rounded-l-3xl bg-blue-400 text-black hover:bg-gray-600 font-bold marker:transition duration-300 ease-in-out"
+            >
+                GRABAR MATERIAS
+            </button>
 
             {showConfirmation && (
                 <div className="fixed z-10 inset-0 overflow-y-auto">

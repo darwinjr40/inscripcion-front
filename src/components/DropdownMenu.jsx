@@ -5,9 +5,11 @@ function DropdownMenu({ materia }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isSelect, setIsSelect] = useState("");
   const { addHorario, removeHorario, boletaState,addBoleta, removeBoleta } = useContext(HorarioContext);
+  
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
+
 
   const onInputChange =  (event, mat, grupo) => {
     //console.log(materia);

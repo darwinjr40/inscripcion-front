@@ -3,6 +3,7 @@ import { HorarioContext } from "../context/HorarioContext";
 import { Schedule } from "./Schedule";
 import { TableMateria } from "./TableMateria";
 import { TableMateriaIntersec } from "./TableMateriaIntersec";
+import {ButtonConfirmInter} from "../components/ButtonConfirmInter";
 
 
 export const ButtonShowBoleta = ({onState, onAdd, onReset}) => {
@@ -81,7 +82,9 @@ export const ButtonShowBoleta = ({onState, onAdd, onReset}) => {
                                         Materias Seleccionadas
                                     </h1>                                    
                                     <TableMateria />
-
+                                    <ButtonConfirmInter
+                                    onState={onState}
+                                    />
                                                                       
                                     <TableMateriaIntersec 
                                         onState={onState}
@@ -108,7 +111,6 @@ export const ButtonShowBoleta = ({onState, onAdd, onReset}) => {
                                             </h1>          */}
                                             <Schedule/>       
                                         </div>
-                                    
                                     </div>
                                 </div>
                             </div>
@@ -129,11 +131,13 @@ export const ButtonShowBoleta = ({onState, onAdd, onReset}) => {
                                 >
                                     Confirmar
                                 </button> */}
+                                    
                             </div>
                         </div>
                     </div>
                 </div>
             )}
+
         </div>
     );
 }

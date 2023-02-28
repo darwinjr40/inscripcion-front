@@ -12,11 +12,14 @@ const horaDeter = (vec, vecSig ) => {//inf110, inf210
       //         || (x.start == y.start && x.end === y.end && x.text !==y.text)         
       //         )          
       //     ) {
+        // containsInsersec(x.start, x.end, y.start, y.end);
       if ((x.resource  === y.resource)
-          && ((containsEntreRang(x.start, x.end, y.start) || containsEntreRang(x.start, x.end, y.end))
-              // || (containsEntreRang(x.start, x.end, y.start) || containsEntreRang(x.start, x.end, y.end))        
+          && (
+              (containsEntreRang(x.start, x.end, y.start) || containsEntreRang(x.start, x.end, y.end))
+              || (x.fin === y.fin && x.start === y.start)        
               )
-          && (x.text !==y.text)              
+          && (x.text !==y.text)
+          // &&                
           ) {
         return true;
       }
@@ -24,6 +27,19 @@ const horaDeter = (vec, vecSig ) => {//inf110, inf210
   }
   return false;
 }
+
+// const containsInsersec = (ha ,hb, ia ,ib) => {   
+//   ha = (new Date(ha)).getTime();
+//   hb = (new Date(hb)).getTime();
+//   ia = (new Date(ia)).getTime();
+//   ib = (new Date(ib)).getTime();
+
+//   return (());
+//   // console.log('------------------------------------------');
+//   // console.log(ha);
+//   // console.log(hb);
+//   // console.log(horaDeterminada);
+// }
 
 const containsEntreRang = (horaInicio ,horaFin, horaDeterminada) => {   
   horaInicio = new Date(horaInicio);
@@ -33,7 +49,7 @@ const containsEntreRang = (horaInicio ,horaFin, horaDeterminada) => {
   // console.log(horaInicio);
   // console.log(horaFin);
   // console.log(horaDeterminada);
-  return (horaDeterminada.getTime() >= horaInicio.getTime() && horaDeterminada.getTime() <= horaFin.getTime());
+  return (horaDeterminada.getTime() > horaInicio.getTime() && horaDeterminada.getTime() < horaFin.getTime());
 }
 
 
@@ -72,8 +88,13 @@ export const TableMateriaIntersec = ({onState, onAdd, onReset}) => {
   };
   return (
     // <button className={``} onClick={() => onDeleteMat(materia)}   >
+    <>
+      { showTable ? 
+          <h1 className="text-2xl black font-semibold my-5">Hay Choque de Materias</h1>            
+          :
+          <h1 className="text-2xl black font-semibold my-5">No Hay conflictos</h1>            
+      }
     <div className={`${showTable ?  '' : 'hidden'}`}>
-      <h1 className="text-2xl black font-semibold mt-5">Conflicto de Materias</h1>  
       <table className={`table-auto my-6 border w-full shadow bg-white border-gray-300`}>
         <thead>
           <tr className="border-b">
@@ -123,5 +144,6 @@ export const TableMateriaIntersec = ({onState, onAdd, onReset}) => {
         </tbody>
       </table>
     </div>
+    </>
   );
 };

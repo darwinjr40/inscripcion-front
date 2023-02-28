@@ -55,7 +55,7 @@ export const Inscripcion = () => {
   return (
     <div className="w-[100%] m-auto bg-fondo">
       <Header />
-      <div className="w-[80%] m-auto pt-10">
+      <div className="w-[75%] m-auto pt-10">
         <Descripcion />
 
         <h1 className="text-2xl black font-semibold my-5">

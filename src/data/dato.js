@@ -34,7 +34,7 @@ export const boleta = [
         id: 1,
         cuposDisponibles: 30,
         grupo: "SA",
-        docente: "López Winnipeg Mario Milton",
+        docente: "LOPEZ WINNIPEG MARIO MILTON",
         horario: [
           {
             id: 1,
@@ -95,7 +95,7 @@ export const materias = [
         id: 1,
         cuposDisponibles: 30,
         grupo: "SA",
-        docente: "López Winnipeg Mario Milton",
+        docente: "LOPEZ WINNIPEG MARIO MILTON",
         horario: [
           {
             id: 1,
@@ -389,9 +389,199 @@ export const materias = [
       },
     ],
   },
-  //programacion1------------------------------------------------------
+  //--------------------------------------------ESTRUCTURAS DISCRETAS--------------------------
   {
     id: 2,
+    nivel: "1",
+    sigla: "inf119",
+    materia: "estructuras discretas",
+    cantidadGrupos: 3,
+    levantamiento: false,
+    color: ["4dcf48", "e8e10c", ""],
+    grupos: [
+      {
+        id: 1,
+        cuposDisponibles: 30,
+        grupo: "Z4",
+        docente: "CACERES CHACON BRAULIO",
+        horario: [
+          {
+            id: 1,
+            text: "inf119-Z4",
+            start: "2023-02-25T15:15:00",
+            end: "2023-02-25T16:45:00",
+            resource: "1",
+          },
+          {
+            id: 2,
+            text: "inf119-Z4",
+            start: "2023-02-25T15:15:00",
+            end: "2023-02-25T16:45:00",
+            resource: "3",
+          },
+          {
+            id: 3,
+            text: "inf119-Z4",
+            start: "2023-02-25T15:15:00",
+            end: "2023-02-25T16:45:00",
+            resource: "5",
+          },
+        ],
+        horario2: ["Lun 15:15 - 16:45", "Mi 15:15 - 16:45", "Vi 15:15 - 16:45"],
+      },
+      {
+        id: 2,
+        cuposDisponibles: 25,
+        grupo: "SK",
+        docente: "GUTIERREZ BRUNO KATIME ESTHER",
+        horario: [
+          {
+            id: 1,
+            text: "inf119-SK",
+            start: "2023-02-25T07:00:00",
+            end: "2023-02-25T09:15:00",
+            resource: "2",
+          },
+          {
+            id: 2,
+            text: "inf119-SK",
+            start: "2023-02-25T07:00:00",
+            end: "2023-02-25T09:15:00",
+            resource: "4",
+          },
+        ],
+        horario2: ["Ma 07:00 - 09:15", "Ju 07:00 - 09:15"],
+      },
+      {
+        id: 3,
+        cuposDisponibles: 20,
+        grupo: "SF",
+        docente: "MARTINEZ CARDONA SARAH MIRNA",
+        horario: [
+          {
+            id: 1,
+            text: "inf119-SF",
+            start: "2023-02-25T07:00:00",
+            end: "2023-02-25T08:30:00",
+            resource: "1",
+          },
+          {
+            id: 2,
+            text: "inf119-SF",
+            start: "2023-02-25T07:00:00",
+            end: "2023-02-25T08:30:00",
+            resource: "3",
+          },
+          {
+            id: 3,
+            text: "inf119-SF",
+            start: "2023-02-25T07:00:00",
+            end: "2023-02-25T08:30:00",
+            resource: "5",
+          },
+        ],
+        horario2: ["Lun 07:00 - 08:30", "Mi 07:00 - 08:30", "Vi 07:00 - 08:30"],
+      },      
+    ]
+  },
+  //---------------------------------------fisica 1-----------------------------------
+  {
+    id: 4,
+    nivel: "1",
+    sigla: "fis100",
+    materia: "fisica l",
+    cantidadGrupos: 3,
+    levantamiento: false,
+    color: ["4dcf48", "e8e10c", ""],
+    grupos: [
+      {
+        id: 1,
+        cuposDisponibles: 30,
+        grupo: "SA",
+        docente: "CALDERON FLORES MODESTO FRANKL",
+        horario: [
+          {
+            id: 1,
+            text: "fis100-SA",
+            start: "2023-02-25T09:15:00",
+            end: "2023-02-25T11:30:00",
+            resource: "2",
+          },
+          {
+            id: 2,
+            text: "fis100-SA",
+            start: "2023-02-25T09:15:00",
+            end: "2023-02-25T11:30:00",
+            resource: "4",
+          },
+        ],
+        horario2: ["Ma 09:15 - 11:30", "Ju 09:15 - 11:30"],
+      },
+      {
+        id: 2,
+        cuposDisponibles: 22,
+        grupo: "SG",
+        docente: "SANCHEZ HERVAS JOSE GABRIEL",
+        horario: [
+          {
+            id: 1,
+            text: "fis100-SG",
+            start: "2023-02-25T13:00:00",
+            end: "2023-02-25T14:30:00",
+            resource: "1",
+          },
+          {
+            id: 2,
+            text: "fis100-SG",
+            start: "2023-02-25T13:00:00",
+            end: "2023-02-25T14:30:00",
+            resource: "3",
+          },
+          {
+            id: 3,
+            text: "fis100-SG",
+            start: "2023-02-25T13:00:00",
+            end: "2023-02-25T14:30:00",
+            resource: "5",
+          },
+        ],
+        horario2: ["Lun 13:00 - 14:30", "Mi 13:00 - 14:30", "Vi 13:00 - 14:30"],
+      },
+      {
+        id: 3,
+        cuposDisponibles: 30,
+        grupo: "Z4",
+        docente: "CALDERON FLORES MODESTO FRANKL",
+        horario: [
+          {
+            id: 1,
+            text: "fis100-Z4",
+            start: "2023-02-25T16:45:00",
+            end: "2023-02-25T18:15:00",
+            resource: "1",
+          },
+          {
+            id: 2,
+            text: "fis100-Z4",
+            start: "2023-02-25T16:45:00",
+            end: "2023-02-25T18:15:00",
+            resource: "3",
+          },
+          {
+            id: 3,
+            text: "fis100-Z4",
+            start: "2023-02-25T16:45:00",
+            end: "2023-02-25T18:15:00",
+            resource: "5",
+          },
+        ],
+        horario2: ["Lun 16:45 - 18:15", "Mi 16:45 - 18:15", "Vi 16:45 - 18:15"],
+      },      
+    ]
+  },
+  //programacion1------------------------------------------------------
+  {
+    id: 20,
     nivel: "2",
     sigla: "inf120",
     materia: "programacion l",
@@ -403,7 +593,7 @@ export const materias = [
         id: 1,
         cuposDisponibles: 30,
         grupo: "SG",
-        docente: "López Winnipeg Mario Milton",
+        docente: "LOPEZ WINNIPEG MARIO MILTON",
         horario: [
           {
             id: 1,
@@ -500,16 +690,81 @@ export const materias = [
       },
     ],
   },
+  //-------------------------------------ingles ll--------------------------
+  {
+    id: 21,
+    nivel: "2",
+    sigla: "lin101",
+    materia: "ingles tecnico ll",
+    cantidadGrupos: 4,
+    levantamiento: true,
+    color: ["e39494", "e8e10c", ""],
+    grupos: [
+      {
+        id: 1,
+        cuposDisponibles: 30,
+        grupo: "SC",
+        docente: "GUZMAN DE MOLINA ISABEL MIRIAM",
+        horario: [
+          {
+            id: 1,
+            text: "lin101-SC",
+            start: "2023-02-25T13:45:00",
+            end: "2023-02-25T16:00:00",
+            resource: "2",
+          },
+          {
+            id: 2,
+            text: "lin101-SC",
+            start: "2023-02-25T13:45:00",
+            end: "2023-02-25T16:00:00",
+            resource: "4",
+          },
+        ],
+        horario2: ["Ma 13:45 - 16:00", "Ju 13:45 - 16:00"],
+      },
+      {
+        id: 2,
+        cuposDisponibles: 30,
+        grupo: "SB",
+        docente: "CLAURE MEDRANO DE OROPEZA ELIZ",
+        horario: [
+          {
+            id: 1,
+            text: "lin101-SB",
+            start: "2023-02-25T08:30:00",
+            end: "2023-02-25T10:00:00",
+            resource: "1",
+          },
+          {
+            id: 2,
+            text: "lin101-SB",
+            start: "2023-02-25T08:30:00",
+            end: "2023-02-25T10:00:00",
+            resource: "3",
+          },
+          {
+            id: 3,
+            text: "lin101-SB",
+            start: "2023-02-25T08:30:00",
+            end: "2023-02-25T10:00:00",
+            resource: "5",
+          },
+        ],
+        horario2: ["Lun 08:30 - 10:00", "Mi 08:30 - 10:00", "Vi 08:30 - 10:00"],
+      },
+    ]
+  },
   //programacion ll---------------------
   {
-    id: 3,
+    id: 30,
     nivel: "3",
     sigla: "inf210",
     materia: "programacion ll",
     cantidadGrupos: 5,
-    levantamiento: false,
+    levantamiento: true,
     // color: "F1F7B5",
-    color: ["4dcf48", "e8e10c", ""],
+    color: ["e39494", "e8e10c", ""],
     grupos: [
       {
         id: 1,

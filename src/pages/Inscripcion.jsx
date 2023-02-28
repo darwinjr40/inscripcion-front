@@ -12,14 +12,30 @@ import { init } from "../context/HorarioContext";
 
 let inser = init();
 
-console.log(inser);
+// console.log(inser);
 
 if (inser.length == 0) {
   inser = materias;
 } else {
-  inser = materias.filter((mat) => 
-    !(inser.find(bol => (bol.sigla === mat.sigla && bol.confirm)))
+  // inser = materias.filter((mat) => 
+  //   !(inser.find(bol => (bol.sigla === mat.sigla && bol.confirm)))
+  // )
+  let vec = [];
+  materias.forEach((mat) => {
+      const eleBusq = (inser.find(bol => (bol.sigla === mat.sigla)));
+      if (eleBusq) {
+        if (!eleBusq.confirm) {
+          mat.confirm = true;
+          vec.push(mat)
+        }
+      } else {
+        vec.push(mat)
+      }
+    }
   )
+  inser = vec;
+  console.log(inser);
+
 }
 
 
